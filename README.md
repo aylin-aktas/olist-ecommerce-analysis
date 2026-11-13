@@ -28,6 +28,7 @@ Bu projede Brezilya'daki Olist e-ticaret pazaryerine ait, herkese açık ve anon
 |---|---|
 | `sql/01_veri_yukleme.sql` | Tabloların oluşturulması ve CSV dosyalarının yüklenmesi |
 | `sql/02_veriyi_tanima.sql` | Veriyi tanıma ve veri kalitesi kontrolleri |
+| `sql/03_bekleyen_siparisler.sql` | Teslim edilmemiş siparişler için gecikmeye göre öncelik raporu |
 | *(hazırlanıyor)* | Satış performansı, teslimat analizi, müşteri memnuniyeti |
 
 ## Veriyi Tanıma: İlk Bulgular
@@ -37,6 +38,12 @@ Bu projede Brezilya'daki Olist e-ticaret pazaryerine ait, herkese açık ve anon
 - Siparişlerin %90,1'i tek ürünlü.
 - Ödemelerin %73,9'u kredi kartıyla, %19,0'u boleto ile yapılmış. Kredi kartında ortalama taksit 3,5.
 - Yorumların %57,8'i 5 puan, %11,5'i 1 puan.
+
+## Bekleyen Siparişler Raporu
+
+- Veride 1.729 açık sipariş görünüyor (kargoda 1.107, faturalanmış 314, hazırlanıyor 301, oluşturulmuş 5, onaylanmış 2).
+- Hepsinin söz verilen teslim tarihi geçmiş ve ortalama 310–579 gündür bekliyor. Kargodaki siparişlerin 1.106'sı ortalama 290 gün gecikmeli.
+- Bu siparişler büyük olasılıkla güncellenmemiş eski kayıtlar. Rapor, referans tarihi `GETDATE()` ile değiştirilerek canlı veride günlük olarak kullanılabilir.
 
 ## Veri Kalitesi Notları
 
