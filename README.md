@@ -29,7 +29,7 @@ Bu projede Brezilya'daki Olist e-ticaret pazaryerine ait, herkese açık ve anon
 | `sql/01_veri_yukleme.sql` | Tabloların oluşturulması ve CSV dosyalarının yüklenmesi |
 | `sql/02_veriyi_tanima.sql` | Veriyi tanıma ve veri kalitesi kontrolleri |
 | `sql/03_bekleyen_siparisler.sql` | Teslim edilmemiş siparişler için gecikmeye göre öncelik raporu |
-| *(hazırlanıyor)* | Satış performansı, teslimat analizi, müşteri memnuniyeti |
+| `sql/04_teslimat_ve_memnuniyet.sql` | Teslimat gecikmesinin müşteri puanına etkisi |
 
 ## Veriyi Tanıma: İlk Bulgular
 
@@ -44,6 +44,13 @@ Bu projede Brezilya'daki Olist e-ticaret pazaryerine ait, herkese açık ve anon
 - Veride 1.729 açık sipariş görünüyor (kargoda 1.107, faturalanmış 314, hazırlanıyor 301, oluşturulmuş 5, onaylanmış 2).
 - Hepsinin söz verilen teslim tarihi geçmiş ve ortalama 310–579 gündür bekliyor. Kargodaki siparişlerin 1.106'sı ortalama 290 gün gecikmeli.
 - Bu siparişler büyük olasılıkla güncellenmemiş eski kayıtlar. Rapor, referans tarihi `GETDATE()` ile değiştirilerek canlı veride günlük olarak kullanılabilir.
+
+## Teslimat ve Memnuniyet Raporu 
+
+- Teslim edilen siparişlerin %6,8'i söz verilen tarihten sonra ulaştı.
+- Geç teslim edilen siparişlerin ortalama puanı 2,27, zamanında teslim edilenlerin 4,29.
+- Geç teslimlerde yorumların %53,7'si 1 puan; zamanında teslimlerde bu oran %6,6.
+- Gecikme uzadıkça ortalama puan düşüyor: 1-5 gün geç 2,99, 6-15 gün geç 1,75, 15 günden fazla geç 1,73.
 
 ## Veri Kalitesi Notları
 
